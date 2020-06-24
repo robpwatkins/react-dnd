@@ -23,6 +23,13 @@ const App = () => {
     <div className="App">
       <h1>React drag-and-drop component</h1>
       <DragAndDrop data={data} dispatch={dispatch} />
+      <ol className="dropped-files">
+        {data.fileList.map(file => {
+          return (
+            <li key={file.name}>file.name</li>
+          )
+        })}
+      </ol>
     </div>
   );
 }

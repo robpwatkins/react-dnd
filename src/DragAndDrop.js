@@ -38,7 +38,7 @@ const DragAndDrop = props => {
   };
 
   return (
-    <div className={'drag-drop-zone'}
+    <div className={data.inDropZone ? 'drag-drop-zone inside-drag-area' : 'drag-drop-zone'}
       onDrop={event => handleDrop(event)}
       onDragOver={event => handleDragOver(event)}
       onDragEnter={event => handleDragEnter(event)}
