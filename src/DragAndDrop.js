@@ -36,7 +36,7 @@ const DragAndDrop = props => {
     event.preventDefault();
     event.stopPropagation();
   };
-
+  console.log(data);
   return (
     <div className={data.inDropZone ? 'drag-drop-zone inside-drag-area' : 'drag-drop-zone'}
       onDrop={event => handleDrop(event)}
