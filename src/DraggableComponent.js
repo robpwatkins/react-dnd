@@ -39,8 +39,9 @@ const DraggableComponent = () => {
     }
   }, [position])
 
-  const handleMouseDown = () => {
+  const handleMouseDown = event => {
     setPressed(true);
+    setCardInfo(event.target.innerText);
   }
 
   // Update the current position if mouse is down
@@ -52,7 +53,7 @@ const DraggableComponent = () => {
       })
     }
   }
-
+  console.log(cardInfo);
   return (
     <div style={ containerStyle }>
       <div
