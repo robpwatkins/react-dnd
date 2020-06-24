@@ -22,6 +22,17 @@ const DragAndDrop = props => {
     dispatch({ type: 'SET_IN_DROP_ZONE', inDropZone: true });
   };
   const handleDrop = event => {
+    let files = [...event.dataTransfer.files];
+
+    if (files && files.length > 0) {
+      const existingFiles = data.fileList.map(file => file.name)
+      files = files.filter(file => !existingFiles.includes(file.name))
+
+      dispatch({ type: 'ADD_FILE_TO_LIST', files });
+      event.dataTransfer.clearData();
+      dispatch({ type: 'SET_DROP_DEPTH', dropDepth: 0 });
+      dispatch({ type: 'SET_IN_DROP_ZONE', inDropZone: false });
+    }
     event.preventDefault();
     event.stopPropagation();
   };
