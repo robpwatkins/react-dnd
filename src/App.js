@@ -22,7 +22,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>React drag-and-drop component</h1>
-      <DragAndDrop />
+      <DragAndDrop data={data} dispatch={dispatch} />
     </div>
   );
 }
