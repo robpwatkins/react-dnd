@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useReducer } from 'react';
 import './App.css';
 import DragAndDrop from './DragAndDrop';
 
@@ -15,7 +15,7 @@ const App = () => {
         return state; 
     }
   };
-  const [data, dispatch] = React.useReducer(
+  const [data, dispatch] = useReducer(
     reducer, { dropDepth: 0, inDropZone: false, fileList: [] }
   )
 
