@@ -29,6 +29,7 @@ const quickAndDirtyStyle2 = {
 const DraggableComponent = () => {
   const [pressed, setPressed] = useState(false)
   const [position, setPosition] = useState({x: 0, y: 0})
+  const [cardInfo, setCardInfo] = useState(null);
   const ref = useRef()
 
   // Monitor changes to position state and update DOM
@@ -37,6 +38,10 @@ const DraggableComponent = () => {
       ref.current.style.transform = `translate(${position.x}px, ${position.y}px)`
     }
   }, [position])
+
+  const handleMouseDown = () => {
+    setPressed(true);
+  }
 
   // Update the current position if mouse is down
   const onMouseMove = (event) => {
@@ -53,10 +58,10 @@ const DraggableComponent = () => {
       <div
         ref={ ref }
         style={ quickAndDirtyStyle }
+        onMouseDown={ handleMouseDown }
         onMouseMove={ onMouseMove }
-        onMouseDown={ () => setPressed(true) }
         onMouseUp={ () => setPressed(false) }>
-        <p>{ pressed ? "Dragging..." : "Press to drag" }</p>
+        <p>Drag me!</p>
       </div>
       <div
         style={ quickAndDirtyStyle2 }
