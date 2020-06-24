@@ -18,6 +18,8 @@ const DragAndDrop = props => {
   const handleDragOver = event => {
     event.preventDefault();
     event.stopPropagation();
+    event.dataTransfer.dropEffect = 'copy';
+    dispatch({ type: 'SET_IN_DROP_ZONE', inDropZone: true });
   };
   const handleDrop = event => {
     event.preventDefault();
