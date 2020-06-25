@@ -1,5 +1,4 @@
 import React, { useRef, useState, useEffect } from 'react'
-import { findByLabelText } from '@testing-library/react'
 
 const containerStyle = {
   display: "flex"
@@ -32,6 +31,10 @@ const DraggableComponent = () => {
   const [cardInfo, setCardInfo] = useState(null);
   const ref = useRef()
 
+  useEffect(() => {
+
+  })
+
   // Monitor changes to position state and update DOM
   useEffect(() => {
     if (ref.current) {
@@ -42,6 +45,11 @@ const DraggableComponent = () => {
   const handleMouseDown = event => {
     setPressed(true);
     setCardInfo(event.target.innerText);
+  }
+
+  const handleDrag = event => {
+    event.preventDefault();
+    event.stopPropagation();
   }
 
   // Update the current position if mouse is down
@@ -57,6 +65,8 @@ const DraggableComponent = () => {
   return (
     <div style={ containerStyle }>
       <div
+        draggable
+        onDrag={handleDrag}
         ref={ ref }
         style={ quickAndDirtyStyle }
         onMouseDown={ handleMouseDown }
