@@ -53,7 +53,7 @@ const DraggableComponent = () => {
       })
     }
   }
-  console.log(cardInfo);
+  // console.log(cardInfo);
   return (
     <div style={ containerStyle }>
       <div
@@ -66,7 +66,7 @@ const DraggableComponent = () => {
       </div>
       <div
         style={ quickAndDirtyStyle2 }
-      >
+        onDragEnter={() => console.log('heyoo')}>
       </div>
     </div>
   )
